@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EstacionamentoVeiculos.Domain.Configuration;
+using EstacionamentoVeiculos.Infra.Context;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System.IO;
 
 namespace EstacionamentoVeiculos.API
 {
@@ -14,11 +14,30 @@ namespace EstacionamentoVeiculos.API
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            BuildWebHost(args)
+                .MigrateDbContext<EstacionamentoVeiculosContext>((context, services) =>
+                {
+                    var env = services.GetService<IHostingEnvironment>();
+                    var settings = services.GetService<IOptions<EstationamentoVeiculosConfigurations>>();
+                }).Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddEnvironmentVariables();
+                }).ConfigureLogging((hostingContext, builder) =>
+                {
+                    builder.AddConfiguration(hostingContext.Configuration.GetSection("Log4NetCore"));
+                    //builder.AddLog4Net();
+                    builder.SetMinimumLevel(LogLevel.Debug);
+                    builder.AddConsole();
+                    builder.AddDebug();
+                })
+                .Build();
     }
 }
+

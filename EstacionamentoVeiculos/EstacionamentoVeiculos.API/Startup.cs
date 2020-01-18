@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
+using EstacionamentoVeiculos.Infra.Interfaces;
+using EstacionamentoVeiculos.Infra.Repositories;
 
 namespace EstacionamentoVeiculos.API
 {
@@ -79,6 +81,8 @@ namespace EstacionamentoVeiculos.API
 
 
             //services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<IRepositoryUnitOfWork, RepositoryUnitOfWork>();
+
 
             services.AddSwaggerGen(c =>
             {
