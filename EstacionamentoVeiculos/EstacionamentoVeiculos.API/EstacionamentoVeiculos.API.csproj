@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EstacionamentoVeiculos.Domain\EstacionamentoVeiculos.Domain.csproj" />
+    <ProjectReference Include="..\EstacionamentoVeiculos.Infra\EstacionamentoVeiculos.Infra.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,9 +5,9 @@ using System.Reflection;
 
 namespace EstacionamentoVeiculos.Infra.Context
 {
-    public class EstacionamentoVeiculos : DbContext
+    public class EstacionamentoVeiculosContext : DbContext
     {
-        public EstacionamentoVeiculos(DbContextOptions<EstacionamentoVeiculos> options) : base(options)
+        public EstacionamentoVeiculosContext(DbContextOptions<EstacionamentoVeiculosContext> options) : base(options)
         {
 
         }
