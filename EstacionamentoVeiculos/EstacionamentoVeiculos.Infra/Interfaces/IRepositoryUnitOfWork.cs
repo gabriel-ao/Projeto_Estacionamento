@@ -1,6 +1,6 @@
 ﻿namespace EstacionamentoVeiculos.Infra.Interfaces
 {
-    public interface IRepositoryUnityOfWork
+    public interface IRepositoryUnitOfWork
     {
         //IRepositoryUser Users { get; }
         bool Commit();

@@ -30,8 +30,6 @@ namespace EstacionamentoVeiculos.API
         //    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         //}
 
-
-
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
