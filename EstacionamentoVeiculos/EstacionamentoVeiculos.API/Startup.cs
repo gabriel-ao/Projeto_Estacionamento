@@ -14,6 +14,9 @@ using System;
 using System.Reflection;
 using EstacionamentoVeiculos.Infra.Interfaces;
 using EstacionamentoVeiculos.Infra.Repositories;
+using EstacionamentoVeiculos.Domain.Interfaces;
+using EstacionamentoVeiculos.Services.Services;
+using EstacionamentoVeiculos.Services.Interfaces;
 
 namespace EstacionamentoVeiculos.API
 {
@@ -39,7 +42,7 @@ namespace EstacionamentoVeiculos.API
             IHostingEnvironment env = serviceProvider.GetService<IHostingEnvironment>();
 
             var connectionString = string.Empty;
-            connectionString = Configuration.GetConnectionString("AprendendoApIBanco");
+            connectionString = Configuration.GetConnectionString("EstacionamentoVeiculosContext");
 
 
 
@@ -79,9 +82,11 @@ namespace EstacionamentoVeiculos.API
                         .AllowCredentials());
             });
 
-
-            //services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<IRepositoryUnitOfWork, RepositoryUnitOfWork>();
+            services.AddTransient<IRepositoryUsuario, RepositoryUser>();
+            services.AddTransient<IServiceUser, ServiceUser>();
+            
+
 
 
             services.AddSwaggerGen(c =>

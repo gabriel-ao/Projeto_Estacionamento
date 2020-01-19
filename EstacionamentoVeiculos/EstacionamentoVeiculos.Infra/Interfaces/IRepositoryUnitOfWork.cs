@@ -1,8 +1,10 @@
-﻿namespace EstacionamentoVeiculos.Infra.Interfaces
+﻿using EstacionamentoVeiculos.Domain.Interfaces;
+
+namespace EstacionamentoVeiculos.Infra.Interfaces
 {
     public interface IRepositoryUnitOfWork
     {
-        //IRepositoryUser Users { get; }
+        IRepositoryUsuario Users { get; }
         bool Commit();
     }
 }

@@ -15,8 +15,11 @@ namespace EstacionamentoVeiculos.Domain.Interfaces.Base
         T Buscar(T entity);
         T Alterar(T entity);
         bool Deletar(T entity);
-        
+        void Update(T entity);
+        void Delete(T entity);
+        void Add(T entity);
+        void Commit();
 
-    
+
     }
 }

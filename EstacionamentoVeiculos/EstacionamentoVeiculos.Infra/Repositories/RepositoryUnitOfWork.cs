@@ -1,4 +1,5 @@
-﻿using EstacionamentoVeiculos.Infra.Context;
+﻿using EstacionamentoVeiculos.Domain.Interfaces;
+using EstacionamentoVeiculos.Infra.Context;
 using EstacionamentoVeiculos.Infra.Entities;
 using EstacionamentoVeiculos.Infra.Interfaces;
 using EstacionamentoVeiculos.Infra.Repositories.Base;
@@ -10,7 +11,7 @@ namespace EstacionamentoVeiculos.Infra.Repositories
     {
         private readonly EstacionamentoVeiculosContext _context;
 
-        //private RepositoryUser repositoryUser = null;
+        private RepositoryUser repositoryUser = null;
 
         private bool disposed = false;
 
@@ -19,17 +20,15 @@ namespace EstacionamentoVeiculos.Infra.Repositories
             _context = context;
         }
 
-        //public IRepositoryUser Users
-        //{
-        //    get
-        //    {
-        //        if (repositoryUser == null)
-        //        {
-        //            repositoryUser = new RepositoryUser(_context);
-        //        }
-        //        return repositoryUser;
-        //    }
-        //}
+        public IRepositoryUsuario Users {
+            get {
+                if (repositoryUser == null)
+                {
+                    repositoryUser = new RepositoryUser(_context);
+                }
+                return repositoryUser;
+            }
+        }
 
         protected virtual void Dispose(bool disposing)
         {
