@@ -26,12 +26,6 @@ namespace EstacionamentoVeiculos.API
 
         public IConfiguration Configuration { get; }
 
-        //// This method gets called by the runtime. Use this method to add services to the container.
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-        //}
-
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
@@ -39,7 +33,7 @@ namespace EstacionamentoVeiculos.API
             IHostingEnvironment env = serviceProvider.GetService<IHostingEnvironment>();
 
             var connectionString = string.Empty;
-            connectionString = Configuration.GetConnectionString("AprendendoApIBanco");
+            connectionString = Configuration.GetConnectionString("EstacionamentoVeiculosContext");
 
 
 

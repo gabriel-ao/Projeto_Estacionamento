@@ -7,10 +7,7 @@ namespace EstacionamentoVeiculos.Infra.Context
 {
     public class EstacionamentoVeiculosContext : DbContext
     {
-        public EstacionamentoVeiculosContext(DbContextOptions<EstacionamentoVeiculosContext> options) : base(options)
-        {
-
-        }
+        public EstacionamentoVeiculosContext(DbContextOptions<EstacionamentoVeiculosContext> options) : base(options){}
 
 
         protected override void OnModelCreating(ModelBuilder builder)
