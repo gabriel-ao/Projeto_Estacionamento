@@ -16,8 +16,6 @@ namespace EstacionamentoVeiculos.Infra.Context
                 .Where(type => !string.IsNullOrEmpty(type.Namespace))
                 .Where(type => type.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>)));
 
-
-
             foreach (var type in typesToRegister)
             {
                 dynamic configurationInstance = Activator.CreateInstance(type);

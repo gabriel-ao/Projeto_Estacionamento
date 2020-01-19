@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EstacionamentoVeiculos.Infra.Entities;
 
 namespace EstacionamentoVeiculos.Infra
 {
@@ -6,7 +7,7 @@ namespace EstacionamentoVeiculos.Infra
     {
         public MapperProfile()
         {
-            //CreateMap<DomainModel.User, User>().ReverseMap();
+            CreateMap<Domain.Model.Usuario, Usuario>().ReverseMap();
         }
     }
 }
