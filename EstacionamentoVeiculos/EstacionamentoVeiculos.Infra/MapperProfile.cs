@@ -8,6 +8,7 @@ namespace EstacionamentoVeiculos.Infra
         public MapperProfile()
         {
             CreateMap<Domain.Model.Usuario, Usuario>().ReverseMap();
+            CreateMap<Domain.Model.Veiculo, Veiculo>().ReverseMap();
         }
     }
 }

@@ -31,9 +31,7 @@ namespace EstacionamentoVeiculos.Services.Services
             _mapper = config.CreateMapper();
         }
 
-
         #endregion
-
 
         public Usuario GetUserById(Guid id)
         {
@@ -67,7 +65,6 @@ namespace EstacionamentoVeiculos.Services.Services
             _unitOfWork.Commit();
             return Mensagem.MSG_S001;
         }
-
 
         public Usuario EditarUsuario(Usuario user)
         {
@@ -111,7 +108,6 @@ namespace EstacionamentoVeiculos.Services.Services
             }
             return Mensagem.MSG_S003;
         }
-
 
         public string DeletarUsuarioService(Guid id)
         {

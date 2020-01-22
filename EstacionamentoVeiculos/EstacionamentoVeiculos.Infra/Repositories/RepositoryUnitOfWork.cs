@@ -13,6 +13,8 @@ namespace EstacionamentoVeiculos.Infra.Repositories
 
         private RepositoryUser repositoryUser = null;
 
+        private RepositoryVeiculo repositoryVeiculo = null;
+
         private bool disposed = false;
 
         public RepositoryUnitOfWork(EstacionamentoVeiculosContext context) : base(context)
@@ -27,6 +29,16 @@ namespace EstacionamentoVeiculos.Infra.Repositories
                     repositoryUser = new RepositoryUser(_context);
                 }
                 return repositoryUser;
+            }
+        }
+
+        public IRepositoryVeiculo Veiculos {
+            get {
+                if (repositoryVeiculo == null)
+                {
+                    repositoryVeiculo = new RepositoryVeiculo(_context);
+                }
+                return repositoryVeiculo;
             }
         }
 

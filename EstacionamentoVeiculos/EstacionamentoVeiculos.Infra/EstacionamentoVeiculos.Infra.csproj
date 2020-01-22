@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\Base\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,15 +1,13 @@
 ﻿using AutoMapper;
 using EstacionamentoVeiculos.Domain.Interfaces;
-using EstacionamentoVeiculos.Infra;
 using EstacionamentoVeiculos.Infra.Context;
 using EstacionamentoVeiculos.Infra.Entities;
 using EstacionamentoVeiculos.Infra.Repositories.Base;
 
 namespace EstacionamentoVeiculos.Infra.Repositories
 {
-    public class RepositoryUser : RepositoryBase<Domain.Model.Usuario, Usuario>, IRepositoryUsuario
+    public class RepositoryVeiculo : RepositoryBase<Domain.Model.Veiculo, Veiculo>, IRepositoryVeiculo
     {
-
         #region Atributos
 
         private IMapper _mapper;
@@ -18,7 +16,7 @@ namespace EstacionamentoVeiculos.Infra.Repositories
 
         #region Construtor
 
-        public RepositoryUser(EstacionamentoVeiculosContext context) : base(context)
+        public RepositoryVeiculo(EstacionamentoVeiculosContext context) : base(context)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -28,6 +26,5 @@ namespace EstacionamentoVeiculos.Infra.Repositories
         }
 
         #endregion
-
     }
 }
