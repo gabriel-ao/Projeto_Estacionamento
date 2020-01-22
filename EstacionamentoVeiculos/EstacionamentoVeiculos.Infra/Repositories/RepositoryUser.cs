@@ -27,4 +27,7 @@ public class RepositoryUser : RepositoryBase<EstacionamentoVeiculos.Domain.Model
     }
 
     #endregion
+
+
+
 }
