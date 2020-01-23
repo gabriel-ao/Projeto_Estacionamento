@@ -37,46 +37,10 @@ namespace EstacionamentoVeiculos.Infra.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("Id");
 
-                    b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("Id");
-
-                    b.Property<bool>("Active");
-
-                    b.Property<DateTimeOffset>("CreateDate");
-
-                    b.Property<Guid>("IdUsuario");
-
-                    b.Property<string>("Marca");
-
-                    b.Property<string>("Modelo");
-
-                    b.Property<string>("Placa");
-
-                    b.Property<DateTimeOffset?>("UpdateDate");
-
-                    b.Property<Guid?>("UsuarioId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Veiculos");
-                });
-
-            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
-                {
-                    b.HasOne("EstacionamentoVeiculos.Infra.Entities.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }

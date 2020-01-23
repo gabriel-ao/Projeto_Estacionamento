@@ -9,7 +9,7 @@ using EstacionamentoVeiculos.Services.Interfaces;
 
 namespace EstacionamentoVeiculos.Services.Services
 {
-    class ServiceVeiculo : IServiceVeiculo
+    public class ServiceVeiculo : IServiceVeiculo
     {
         #region Atributos
 

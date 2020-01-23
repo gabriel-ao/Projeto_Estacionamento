@@ -77,10 +77,14 @@ namespace EstacionamentoVeiculos.API
             });
 
             services.AddTransient<IRepositoryUnitOfWork, RepositoryUnitOfWork>();
+
+            // usuario
             services.AddTransient<IRepositoryUsuario, RepositoryUser>();
             services.AddTransient<IServiceUser, ServiceUser>();
-            
 
+            //veiculo
+            services.AddTransient<IRepositoryVeiculo, RepositoryVeiculo>();
+            services.AddTransient<IServiceVeiculo, ServiceVeiculo>();
 
 
             services.AddSwaggerGen(c =>

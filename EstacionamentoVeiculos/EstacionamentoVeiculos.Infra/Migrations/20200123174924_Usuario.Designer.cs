@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstacionamentoVeiculos.Infra.Migrations
 {
     [DbContext(typeof(EstacionamentoVeiculosContext))]
-    [Migration("20200118233712_Usuarios")]
-    partial class Usuarios
+    [Migration("20200123174924_Usuario")]
+    partial class Usuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,9 +39,10 @@ namespace EstacionamentoVeiculos.Infra.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuario");
                 });
 #pragma warning restore 612, 618
         }
