@@ -17,25 +17,12 @@ namespace EstacionamentoVeiculos.Infra.Migrations
                     Active = table.Column<bool>(nullable: false),
                     Modelo = table.Column<string>(nullable: true),
                     Marca = table.Column<string>(nullable: true),
-                    Placa = table.Column<string>(nullable: true),
-                    IdUsuario = table.Column<Guid>(nullable: false),
-                    UsuarioId = table.Column<Guid>(nullable: true)
+                    Placa = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("Id", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Veiculo_Usuario_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuario",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Veiculo_UsuarioId",
-                table: "Veiculo",
-                column: "UsuarioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

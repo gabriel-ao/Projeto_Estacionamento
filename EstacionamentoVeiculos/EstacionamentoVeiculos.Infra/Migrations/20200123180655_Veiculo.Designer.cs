@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstacionamentoVeiculos.Infra.Migrations
 {
     [DbContext(typeof(EstacionamentoVeiculosContext))]
-    [Migration("20200123175746_Veiculo")]
+    [Migration("20200123180655_Veiculo")]
     partial class Veiculo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,8 +55,6 @@ namespace EstacionamentoVeiculos.Infra.Migrations
 
                     b.Property<DateTimeOffset>("CreateDate");
 
-                    b.Property<Guid>("IdUsuario");
-
                     b.Property<string>("Marca");
 
                     b.Property<string>("Modelo");
@@ -65,22 +63,10 @@ namespace EstacionamentoVeiculos.Infra.Migrations
 
                     b.Property<DateTimeOffset?>("UpdateDate");
 
-                    b.Property<Guid?>("UsuarioId");
-
                     b.HasKey("Id")
                         .HasName("Id");
 
-                    b.HasIndex("UsuarioId");
-
                     b.ToTable("Veiculo");
-                });
-
-            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
-                {
-                    b.HasOne("EstacionamentoVeiculos.Infra.Entities.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
