@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EstacionamentoVeiculos.Infra.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -16,6 +17,7 @@ namespace EstacionamentoVeiculos.Infra.Context
                 .Where(type => !string.IsNullOrEmpty(type.Namespace))
                 .Where(type => type.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>)));
 
+            
             foreach (var type in typesToRegister)
             {
                 dynamic configurationInstance = Activator.CreateInstance(type);
@@ -29,6 +31,7 @@ namespace EstacionamentoVeiculos.Infra.Context
             }
 
             base.OnModelCreating(builder);
+
         }
 
 

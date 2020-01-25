@@ -9,8 +9,13 @@ namespace EstacionamentoVeiculos.Infra.Config
         public void Configure(EntityTypeBuilder<Veiculo> builder)
         {
             builder.ToTable("Veiculo");
-            builder.HasKey(x => x.Id).HasName("Id");
+            builder.HasKey(x => x.Id).HasName("Id_Veiculo");
             builder.Property(x => x.Id).HasColumnName("Id");
+
+            
         }
+
+
+
     }
 }

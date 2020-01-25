@@ -10,5 +10,9 @@ namespace EstacionamentoVeiculos.Infra.Entities
         public string Modelo { get; set; }
         public string Marca { get; set; }
         public string Placa { get; set; }
+
+
+        public Guid UsuarioId { get; set; }
+        public virtual Usuario UsuarioFK { get; set; }
     }
 }

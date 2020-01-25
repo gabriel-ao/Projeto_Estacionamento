@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstacionamentoVeiculos.Infra.Migrations
 {
     [DbContext(typeof(EstacionamentoVeiculosContext))]
-    [Migration("20200123174924_Usuario")]
+    [Migration("20200125182553_Usuario")]
     partial class Usuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,9 +40,43 @@ namespace EstacionamentoVeiculos.Infra.Migrations
                     b.Property<DateTimeOffset?>("UpdateDate");
 
                     b.HasKey("Id")
-                        .HasName("Id");
+                        .HasName("Id_Usuario");
 
                     b.ToTable("Usuario");
+                });
+
+            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Active");
+
+                    b.Property<DateTimeOffset>("CreateDate");
+
+                    b.Property<string>("Marca");
+
+                    b.Property<string>("Modelo");
+
+                    b.Property<string>("Placa");
+
+                    b.Property<DateTimeOffset?>("UpdateDate");
+
+                    b.Property<Guid>("UsuarioId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Veiculo");
+                });
+
+            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
+                {
+                    b.HasOne("EstacionamentoVeiculos.Infra.Entities.Usuario", "UsuarioFK")
+                        .WithMany("Veiculos")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
