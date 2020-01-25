@@ -1,7 +1,5 @@
-﻿using EstacionamentoVeiculos.Infra.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using EstacionamentoVeiculos.Infra.Entities.Base;
 
 namespace EstacionamentoVeiculos.Infra.Entities
 {
@@ -16,7 +14,7 @@ namespace EstacionamentoVeiculos.Infra.Entities
         public string Email { get; set; }
         public string Senha { get; set; }
 
-        public virtual IList<Veiculo> Veiculos { get; set; }
+        public IList<Veiculo> Veiculos { get; set; }
 
 
     }

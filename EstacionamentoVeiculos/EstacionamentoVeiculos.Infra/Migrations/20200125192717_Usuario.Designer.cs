@@ -4,14 +4,16 @@ using EstacionamentoVeiculos.Infra.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EstacionamentoVeiculos.Infra.Migrations
 {
     [DbContext(typeof(EstacionamentoVeiculosContext))]
-    partial class EstacionamentoVeiculosContextModelSnapshot : ModelSnapshot
+    [Migration("20200125192717_Usuario")]
+    partial class Usuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,42 +43,6 @@ namespace EstacionamentoVeiculos.Infra.Migrations
                         .HasName("Id_Usuario");
 
                     b.ToTable("Usuario");
-                });
-
-            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("Id");
-
-                    b.Property<bool>("Active");
-
-                    b.Property<DateTimeOffset>("CreateDate");
-
-                    b.Property<string>("Marca");
-
-                    b.Property<string>("Modelo");
-
-                    b.Property<string>("Placa");
-
-                    b.Property<DateTimeOffset?>("UpdateDate");
-
-                    b.Property<Guid>("UsuarioId");
-
-                    b.HasKey("Id")
-                        .HasName("Id_Veiculo");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Veiculo");
-                });
-
-            modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
-                {
-                    b.HasOne("EstacionamentoVeiculos.Infra.Entities.Usuario", "Usuario")
-                        .WithMany("Veiculos")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

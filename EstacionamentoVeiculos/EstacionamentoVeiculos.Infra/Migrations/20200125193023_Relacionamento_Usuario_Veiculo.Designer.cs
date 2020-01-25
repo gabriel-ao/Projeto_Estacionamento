@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EstacionamentoVeiculos.Infra.Migrations
 {
     [DbContext(typeof(EstacionamentoVeiculosContext))]
-    [Migration("20200125182553_Usuario")]
-    partial class Usuario
+    [Migration("20200125193023_Relacionamento_Usuario_Veiculo")]
+    partial class Relacionamento_Usuario_Veiculo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,8 @@ namespace EstacionamentoVeiculos.Infra.Migrations
             modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
 
                     b.Property<bool>("Active");
 
@@ -64,7 +65,8 @@ namespace EstacionamentoVeiculos.Infra.Migrations
 
                     b.Property<Guid>("UsuarioId");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("Id_Veiculo");
 
                     b.HasIndex("UsuarioId");
 
@@ -73,7 +75,7 @@ namespace EstacionamentoVeiculos.Infra.Migrations
 
             modelBuilder.Entity("EstacionamentoVeiculos.Infra.Entities.Veiculo", b =>
                 {
-                    b.HasOne("EstacionamentoVeiculos.Infra.Entities.Usuario", "UsuarioFK")
+                    b.HasOne("EstacionamentoVeiculos.Infra.Entities.Usuario", "Usuario")
                         .WithMany("Veiculos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Restrict);

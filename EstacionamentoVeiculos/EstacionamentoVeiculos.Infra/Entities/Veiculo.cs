@@ -1,7 +1,5 @@
 ﻿using EstacionamentoVeiculos.Infra.Entities.Base;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EstacionamentoVeiculos.Infra.Entities
 {
@@ -11,8 +9,7 @@ namespace EstacionamentoVeiculos.Infra.Entities
         public string Marca { get; set; }
         public string Placa { get; set; }
 
-
         public Guid UsuarioId { get; set; }
-        public virtual Usuario UsuarioFK { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }
